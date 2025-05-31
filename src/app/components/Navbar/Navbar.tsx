@@ -1,32 +1,62 @@
 'use client';
 
-import React from 'react';
+import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
+// Make sure your _app.tsx or layout includes <SessionProvider> from 'next-auth/react'
 
 const Navbar: React.FC = () => {
+  const { data: session, status } = useSession();
+  const isAuthenticated = status === 'authenticated';
+
   return (
     <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-7xl px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-between shadow-lg z-50">
       
       {/* Left: Logo */}
-      <div className="text-black font-semibold text-xl">
-        UniSwap
-      </div>
-
+      <Link href="/Home">
+        <div className="text-black font-extrabold text-2xl cursor-pointer">
+          UniSwap
+        </div>
+      </Link>
+      
       {/* Center: Search Bar */}
       <div className="flex-1 mx-6 max-w-md w-full">
         <input
           type="text"
           placeholder="Search items, books, tools..."
-          className="w-full px-4 py-2 rounded-full bg-white/20 placeholder-white/70 text-white focus:outline-none backdrop-blur-md border border-white/30"
+          className="w-full px-4 py-2 rounded-full bg-black/20 placeholder-white/70 text-white focus:outline-none backdrop-blur-md border border-white/30"
         />
       </div>
 
-      {/* Right: Login Button */}
-      <button
-        type="button"
-        className="bg-black/20 text-white px-4 py-2 rounded-full border border-white/30 hover:bg-white/30 transition-all duration-200"
-      >
-        Login
-      </button>
+      {/* Right: Buttons */}
+      <div className='flex items-center gap-4'>
+        {isAuthenticated ? (
+          <>
+            <Link href="/PostItem">
+              <button
+                type="button"
+                className="bg-black/20 text-white px-4 py-2 rounded-full border border-white/30 hover:bg-[#FA902D] transition-all duration-200"
+              >
+                Post Item
+              </button>
+            </Link>
+            <button
+              onClick={() => signOut()}
+              className="bg-black/20 text-white px-4 py-2 rounded-full border border-white/30 hover:bg-red-600 transition-all duration-200"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link href="/Login">
+            <button
+              type="button"
+              className="bg-black/20 text-white px-4 py-2 rounded-full border border-white/30 hover:bg-[#FA902D] transition-all duration-200"
+            >
+              Login
+            </button>
+          </Link>
+        )}
+      </div>
     </nav>
   );
 };

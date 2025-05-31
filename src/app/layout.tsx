@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import Navbar from './components/Navbar/Navbar';
+import { useSession } from 'next-auth/react';
 
 export const metadata: Metadata = {
   title: 'UniSwap',
@@ -15,7 +15,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
         {children}
       </body>
     </html>
