@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
-// Make sure your _app.tsx or layout includes <SessionProvider> from 'next-auth/react'
 
 const Navbar: React.FC = () => {
   const { data: session, status } = useSession();
@@ -29,8 +28,6 @@ const Navbar: React.FC = () => {
 
       {/* Right: Buttons */}
       <div className='flex items-center gap-4'>
-        {isAuthenticated ? (
-          <>
             <Link href="/PostItem">
               <button
                 type="button"
@@ -39,14 +36,6 @@ const Navbar: React.FC = () => {
                 Post Item
               </button>
             </Link>
-            <button
-              onClick={() => signOut()}
-              className="bg-black/20 text-white px-4 py-2 rounded-full border border-white/30 hover:bg-red-600 transition-all duration-200"
-            >
-              Logout
-            </button>
-          </>
-        ) : (
           <Link href="/Login">
             <button
               type="button"
@@ -55,7 +44,6 @@ const Navbar: React.FC = () => {
               Login
             </button>
           </Link>
-        )}
       </div>
     </nav>
   );

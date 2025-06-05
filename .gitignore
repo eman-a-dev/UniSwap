@@ -38,4 +38,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
 next-env.d.ts
+
+
+# local env files
+# This file is used to store local environment variables that should not be committed to the repository.
+.env.local

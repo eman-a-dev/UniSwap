@@ -16,7 +16,6 @@ export default function Signin() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('handleSubmit called');
 
     const res = await fetch('/api/auth/signup', {
       method: 'POST',

@@ -2,7 +2,7 @@
 
 import Hero from '../components/Hero/Hero';
 import FeaturedCategory from '../components/FeaturedCategory/FeaturedCategory';
-import ProductCard  from '../components/ProductCard/ProductCard';
+import FeaturedProducts from '../components/FeaturedProducts/FeaturedProducts';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import { SessionProvider } from 'next-auth/react';
@@ -14,7 +14,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <FeaturedCategory />
-      <ProductCard />
+      <FeaturedProducts />
       <Footer />
     </SessionProvider>
   );
