@@ -38,12 +38,13 @@ export default function Login() {
         <p className="text-sm text-center text-gray-500 mb-6">Login to your account</p>
 
         <button
-        onClick={() => signIn('google')}
-        className="flex items-center gap-2 px-4 py-2 border rounded-md bg-white hover:bg-gray-100"
-      >
-        <FaGoogle className="text-lg" />
-        Continue with Google
-      </button>
+  onClick={() => signIn("google", { callbackUrl: "/Home" })}
+  className="flex items-center gap-2 px-4 py-2 border rounded-md bg-white hover:bg-gray-100"
+>
+  <FaGoogle className="text-lg" />
+  Continue with Google
+</button>
+
 
         <div className="flex items-center justify-between my-4">
           <hr className="w-full border-gray-300" />
