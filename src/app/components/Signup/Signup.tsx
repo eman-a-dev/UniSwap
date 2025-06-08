@@ -2,9 +2,10 @@
 
 import React, { useState, FormEvent } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import Link from 'next/link';
-import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { signIn } from "next-auth/react";
+
 
 export default function Signin() {
   const [full_name, setfull_name] = useState('');
@@ -45,7 +46,7 @@ export default function Signin() {
 
         <div className="p-8">
           <button
-            onClick={() => signIn('google')}
+          onClick={() => signIn("google")}
             className="flex items-center justify-center gap-2 border px-4 py-2 rounded-md w-full"
           >
             <FaGoogle className="text-lg" />
