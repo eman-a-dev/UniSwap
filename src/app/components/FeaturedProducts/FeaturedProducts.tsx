@@ -10,7 +10,7 @@ const LISTING_TYPES = [
 ];
 
 export default function FeaturedProducts() {
-  const [products, setProducts] = useState([]);
+ const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [listingType, setListingType] = useState('');
   const [minPrice, setMinPrice] = useState('');
